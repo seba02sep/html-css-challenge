@@ -1,0 +1,101 @@
+body{
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background-color: #000;
+}
+
+*{
+    box-sizing: border-box;
+}
+
+.flipbox-container{
+    max-width: 300px;
+    margin: 30px auto;
+    perspective: 1000px;
+}
+
+.flipbox-wrapper{
+    min-height: 450px;
+    display: flex;
+    align-items: stretch;
+    justify-content: stretch;
+    position: relative;
+    transition: .6s linear;
+    transform-style: preserve-3d;
+}
+
+.flipbox-front, .flipbox-back{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    backface-visibility: hidden;
+    background-position: center;
+    background-size: cover;
+    border-radius: 8px;
+    transform-style: preserve-3d;
+}
+
+.flipbox-front{
+    background-image: url(../images/nature-2.jpg);
+    position: relative;
+}
+.flipbox-back{
+    background-image: url(../images/nature-3.jpg);
+    position: absolute;
+    transform: rotateY(-180deg);
+    height: 100%;
+    width: 100%;
+}
+.transform-top .flipbox-back,
+.transform-bottom .flipbox-back{
+    transform: rotateX(-180deg);
+}
+
+.flipbox-container:hover .flipbox-wrapper{
+    transform: rotateY(-180deg);
+}
+
+.flipbox-container.transform-right:hover .flipbox-wrapper{
+    transform: rotateY(180deg);
+}
+
+.flipbox-container.transform-top:hover .flipbox-wrapper{
+    transform: rotateX(180deg);
+}
+.flipbox-container.transform-bottom:hover .flipbox-wrapper{
+    transform: rotateX(-180deg);
+}
+
+.flipbox-content{
+    padding: 30px;
+    text-align: center;
+    color:#fff;
+    transform-style: preserve-3d;
+    transform: translateZ(50px);
+}
+
+.flipbox-content h3{
+    font-size: 32px;
+    line-height: 1;
+    margin: 0;
+}
+.flipbox-content h4{
+    font-size: 24px;
+    line-height: 1;
+    margin: 0 0 16px;
+}
+.flipbox-content p{
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+.flipbox-button{
+    background: #300;
+    text-decoration: none;
+    font-size: 16px;
+    line-height: 1;
+    padding: 8px 24px;
+    border-radius: 4px;
+    color:#fff
+}
