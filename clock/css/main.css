@@ -1,0 +1,107 @@
+body{
+    margin: 0;
+}
+*{
+    box-sizing: border-box;
+}
+
+.clock-wrap{
+    background:radial-gradient(#28cc35,#121395 100%);
+    display: table;
+    padding: 15px;
+    margin: 30px auto;
+    border-radius: 50%;
+}
+
+.clock{
+    width: 200px;
+    height: 200px;
+    background:repeating-linear-gradient(45deg, #fcc 0px, #fff 10px, #fff 20px);
+    border-radius: 50%;
+    position: relative;
+    box-shadow: 0px 0px 10px #000 inset;
+}
+.clock:before{
+    content: '';
+    display: block;
+    position: absolute;
+    left:50%;
+    top:50%;
+    transform: translate(-50%,-50%);
+    width: 12px;
+    height: 12px;
+    background-color: #f00;
+    border-radius: 50%;
+    z-index: 9;
+}
+.hand{
+    background-color: #000;
+    border-radius: 6px;
+    position: absolute;
+    left: 50%;
+    bottom:50%;
+    transform: translate(-50%,0) rotate(0deg);
+    transform-origin: bottom center;
+    animation: rotate linear;
+    animation-iteration-count: infinite;
+    box-shadow: 1px 1px 2px #000;
+}
+/* to speed up the process im taking
+1s = 60s */
+.hand.hand-hour{
+    width: 6px;
+    height: 70px;
+    animation-duration: 72s; 
+}
+.hand.hand-minute{
+    width: 4px;
+    height: 80px;
+    animation-duration: 6s;
+}
+.hand.hand-second{
+    width: 2px;
+    height: 60px;
+    background-color: #f00;
+    animation-duration: 1s;
+}
+.dot{
+    width: 6px;
+    height: calc(100% - 20px);
+    position: absolute;
+    left: 50%;
+    top:10px;
+    transform: translate(-50%, 0);
+    transform-origin: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+   
+}
+.dot:before,
+.dot:after{
+    content: '';
+    display: block;
+    width: 6px;
+    height: 6px;
+    background-color: #000;
+    border-radius: 50%;
+    box-shadow: 1px 1px 3px #000;
+}
+.dot-2{
+    transform: rotate(45deg);
+}
+.dot-3{
+    transform: rotate(90deg);
+}
+.dot-4{
+    transform: rotate(-45deg);
+}
+
+@keyframes rotate {
+    from{
+        transform: translate(-50%,0) rotate(0deg);
+    }
+    to{
+        transform: translate(-50%,0) rotate(360deg);
+    }
+}
