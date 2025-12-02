@@ -21,4 +21,4 @@ jobs:
           username: ${{ secrets.FTP_USER }}
           password: ${{ secrets.FTP_PASS }}
           server-dir: /htdocs/mytestfile/        # where you want it on InfinityFree
-          local-dir: ./*                # folder in your repo
+          local-dir: ./                # folder in your repo
